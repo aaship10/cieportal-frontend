@@ -7,8 +7,8 @@ import Register from './pages/Register';
 import Profile from './pages/Profile';
 
 import Login from './pages/Login';
-import TeacherDashboard from './pages/TeacherDashboard';
-import CreateTest from './pages/CreateTest';
+import TeacherDashboard from './pages/teacherDashboard';
+import CreateTest from './pages/createTest';
 import StudentDashboard from './pages/studentDashboard';
 import TestTakingView from './pages/TestTakingView';
 import StudentResults from './pages/StudentResults';
