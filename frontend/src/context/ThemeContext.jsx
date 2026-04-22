@@ -3,15 +3,20 @@ import React, { createContext, useContext, useEffect, useState } from 'react';
 const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
-  const [theme, setTheme] = useState(() => {
-    const saved = localStorage.getItem('theme');
-    if (saved) return saved;
-    // For now, default to light
-    return 'light';
-  });
+  const [theme, setTheme] = useState('light');
 
   useEffect(() => {
-    const root = window.document.documentElement;
+    if (typeof window === 'undefined') return;
+
+    const saved = localStorage.getItem('theme');
+    if (saved) setTheme(saved);
+  }, []);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    const root = document.documentElement;
+
     if (theme === 'dark') {
       root.classList.add('dark');
       root.classList.remove('light');
@@ -19,11 +24,12 @@ export const ThemeProvider = ({ children }) => {
       root.classList.add('light');
       root.classList.remove('dark');
     }
+
     localStorage.setItem('theme', theme);
   }, [theme]);
 
   const toggleTheme = () => {
-    setTheme(prev => prev === 'light' ? 'dark' : 'light');
+    setTheme(prev => (prev === 'light' ? 'dark' : 'light'));
   };
 
   return (
