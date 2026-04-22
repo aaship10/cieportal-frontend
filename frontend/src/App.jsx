@@ -9,7 +9,7 @@ import Profile from './pages/Profile';
 import Login from './pages/Login';
 import TeacherDashboard from './pages/TeacherDashboard';
 import CreateTest from './pages/CreateTest';
-import StudentDashboard from './pages/StudentDashboard';
+import StudentDashboard from './pages/studentDashboard';
 import TestTakingView from './pages/TestTakingView';
 import StudentResults from './pages/StudentResults';
 import ReviewTest from './pages/ReviewTest';
